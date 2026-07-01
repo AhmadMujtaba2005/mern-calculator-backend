@@ -115,12 +115,6 @@ POST /api/history
 DELETE /api/history/:id
 ```
 
-### Filter History by Date
-
-```http
-GET /api/history?date=YYYY-MM-DD
-```
-
 ---
 
 ## Future Improvements
