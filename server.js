@@ -1,6 +1,6 @@
 import express from "express";
 import dotenv from "dotenv";
-// import cors from "cors";
+import cors from "cors";
 import connectDB from "./config/db.js";
 import historyRoutes from "./routes/historyRoutes.js";
 
@@ -9,8 +9,8 @@ dotenv.config();
 const app = express();
 
 // Middleware
-// app.use(cors());
-// app.use(express.json());
+app.use(cors());
+app.use(express.json());
 
 // MongoDB Connection
 connectDB();
@@ -19,7 +19,6 @@ connectDB();
 app.get("/", (req, res) => {
     res.send("Calculator API Running...");
 });
-
 
 app.use("/api/history", historyRoutes);
 
