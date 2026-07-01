@@ -4,7 +4,7 @@
 
 This repository contains the backend of a MERN Stack Calculator application developed using **Node.js**, **Express.js**, and **MongoDB**.
 
-The backend exposes REST APIs for managing calculator history. It stores every calculation in MongoDB, supports soft deletion, and provides endpoints for retrieving and filtering calculation records.
+The backend exposes REST APIs for managing calculator history. It stores every calculation in MongoDB, supports soft deletion, and provides endpoints for retrieving calculation records.
 
 ---
 
