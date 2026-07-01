@@ -2,46 +2,58 @@
 
 ## Overview
 
-This repository contains the backend API for the MERN Calculator application. It is built using **Node.js**, **Express.js**, and **MongoDB**.
+This repository contains the backend of a MERN Stack Calculator application developed using **Node.js**, **Express.js**, and **MongoDB**.
 
-The backend is responsible for storing and managing calculator history, supporting soft deletion, and filtering calculations by date.
+The backend exposes REST APIs for managing calculator history. It stores every calculation in MongoDB, supports soft deletion, and provides endpoints for retrieving and filtering calculation records.
 
 ---
 
 ## Features
 
+* RESTful API built with Express.js
+* MongoDB integration using Mongoose
 * Save calculation history
 * Retrieve all calculations
-* Soft delete history records
-* Filter history by calculation date
-* RESTful API architecture
+* Soft delete support (records are marked as deleted instead of permanently removed)
+* Date-based history filtering
+* Modular project structure using MVC architecture
+* Environment variable configuration using Dotenv
+* CORS enabled for frontend integration
 
 ---
 
-## Technologies Used
+## Tech Stack
 
 * Node.js
 * Express.js
 * MongoDB
 * Mongoose
-* CORS
 * Dotenv
+* CORS
 * Nodemon
 
 ---
 
-## Project Structure
+## Folder Structure
 
 ```text
 backend/
 │
 ├── config/
+│   └── db.js
+│
 ├── controllers/
+│   └── historyController.js
+│
 ├── models/
+│   └── history.js
+│
 ├── routes/
+│   └── historyRoutes.js
+│
 ├── .env
-├── server.js
 ├── package.json
+├── server.js
 └── README.md
 ```
 
@@ -49,33 +61,33 @@ backend/
 
 ## Installation
 
-### Clone the repository
+### Clone Repository
 
 ```bash
 git clone <repository-url>
 cd backend
 ```
 
-### Install dependencies
+### Install Dependencies
 
 ```bash
 npm install
 ```
 
-### Create a `.env` file
+### Create Environment File
 
 ```env
 PORT=5000
 MONGO_URI=mongodb://127.0.0.1:27017/calculator
 ```
 
-### Start the development server
+### Start Development Server
 
 ```bash
 npm run dev
 ```
 
-Server will run on:
+The backend runs at:
 
 ```text
 http://localhost:5000
@@ -85,32 +97,28 @@ http://localhost:5000
 
 ## API Endpoints
 
-### Get all calculation history
+### Get All Calculations
 
 ```http
 GET /api/history
 ```
 
-### Save a calculation
+### Save Calculation
 
 ```http
 POST /api/history
 ```
 
-Example Request Body:
-
-```json
-{
-  "equation": "5 + 5",
-  "result": "10",
-  "operationType": "addition"
-}
-```
-
-### Soft delete a calculation
+### Soft Delete Calculation
 
 ```http
 DELETE /api/history/:id
+```
+
+### Filter History by Date
+
+```http
+GET /api/history?date=YYYY-MM-DD
 ```
 
 ---
@@ -118,9 +126,10 @@ DELETE /api/history/:id
 ## Future Improvements
 
 * User authentication
-* Pagination for history
+* Pagination
 * Search functionality
-* Export history as PDF/CSV
+* Export calculation history
+* Unit testing
 
 ---
 
